@@ -845,16 +845,17 @@ $("#peers").innerHTML=Cloud.peers.slice(0,5).map(p=>`<span style="--ac:${avColor
 $("#footInfo").textContent=on?`Sala ${Cloud.ws} · ${Cloud.peers.length} conectado(s) · datos en Firebase Realtime Database`:"Modo local · conecta Firebase para trabajo en línea · todo editable y eliminable";
 if(S.tab==="pub")renderPub();}
 const DOMINIO="hopeacademy.edu.ec";
-const FBV="10.12.2",FBB="https://www.gstatic.com/firebasejs/"+FBV+"/";
+const FBV="10.12.2",FBB="https://www.gstatic.com/firebasejs/"+FBV+"/";let FBsrc=null;
+const imp=async n=>{if(FBsrc!=="jsd"){try{const m=await import(FBB+"firebase-"+n+".js");FBsrc="gs";return m;}catch(e){if(FBsrc==="gs")throw e;FBsrc="jsd";}}return import("https://cdn.jsdelivr.net/npm/firebase@"+FBV+"/"+n+"/+esm");};
 async function connect(cfg,opts){cfg=cfg||{};if(!cfg.apiKey||!cfg.projectId){toast("warn","Falta apiKey o projectId.");return false;}
 const dbURL=cfg.databaseURL||($("#pubDb")&&$("#pubDb").value.trim())||`https://${cfg.projectId}-default-rtdb.firebaseio.com`;
 Cloud.cfg={...cfg,databaseURL:dbURL};Cloud.ws=(opts.ws||cfg._sala||"CCNN-2026").trim();Cloud.me={name:(opts.name||"").trim()||"Usuario",role:opts.role||"docente"};
 try{localStorage.setItem(CFGK,JSON.stringify({cfg:Cloud.cfg,ws:Cloud.ws,me:Cloud.me,authMode:opts.authMode||"anon",mail:opts.mail||""}));}catch(e){}
 renderCloud();
-try{const A=await import(FBB+"firebase-app.js"),D=await import(FBB+"firebase-database.js");
+try{const A=await imp("app"),D=await imp("database");
 const app=A.getApps().length?A.getApps()[0]:A.initializeApp({apiKey:cfg.apiKey,authDomain:cfg.authDomain||cfg.projectId+".firebaseapp.com",databaseURL:dbURL,projectId:cfg.projectId,storageBucket:cfg.storageBucket,messagingSenderId:cfg.messagingSenderId,appId:cfg.appId});
 Cloud.F=D;Cloud.db=D.getDatabase(app);let u="u"+uid();
-try{const U=await import(FBB+"firebase-auth.js"),au=U.getAuth(app);
+try{const U=await imp("auth"),au=U.getAuth(app);
 if((opts.authMode||"anon")==="google"){try{
 const cur=await new Promise(r=>{const un=U.onAuthStateChanged(au,x=>{un();r(x);});});
 if(!cur||cur.isAnonymous){
@@ -1545,7 +1546,7 @@ if(t==="eval")renderExamAll();if(t==="cal")renderCal();if(t==="seg")renderSeg();
 if(Cloud.mode==="online"&&Cloud.uid){try{Cloud.F.update(Cloud.F.ref(Cloud.db,base()+"/presence/"+enc(Cloud.uid)),{tab:t,ts:Date.now()});}catch(e){}}
 scrollTo({top:0,behavior:"smooth"});}
 $("#tabs").onclick=e=>{const b=e.target.closest("[data-tab]");if(b)setTab(b.dataset.tab);};
-$("#cloudChip").onclick=()=>{setTab("pub");$("#pubCfg").focus();};
+$("#cloudChip").onclick=()=>{if(FIREBASE_CONFIG.apiKey&&location.hash!=="#admin"){if(Cloud.mode!=="online")loginGoogle();return;}setTab("pub");$("#pubCfg").focus();};
 $("#bConnect2").onclick=()=>setTab("pub");$("#bGuide2").onclick=()=>setTab("pub");
 $("#brandIc").innerHTML=ic("flask");$("#fIc").innerHTML=ic("flask");$("#tIc").innerHTML=ic("list");$("#cIc").innerHTML=ic("hex");$("#calIc").innerHTML=ic("chart");$("#eIc").innerHTML=ic("quiz");$("#eListIc").innerHTML=ic("clip");$("#bcwIc").innerHTML=ic("cloud");$("#segIc").innerHTML=ic("flag");$("#estIc").innerHTML=ic("pie");$("#pubIc").innerHTML=ic("rocket");$("#filesIc").innerHTML=ic("file");$("#rulesIc").innerHTML=ic("key");
 ["sIc","csIc","gsIc","elIc"].forEach(i=>$("#"+i).innerHTML=ic("search"));
@@ -1564,6 +1565,7 @@ if(saved&&saved.me){Cloud.me=saved.me;$("#pubName").value=saved.me.name||"";$("#
 loadLocal();buildCatalog();X.d=blankE();
 initReg();initEval();initCal();initSeg();initEst();initCat();initPub();fillAsgSelects();fillExam();renderAll();
 const emb=FIREBASE_CONFIG&&FIREBASE_CONFIG.apiKey&&FIREBASE_CONFIG.projectId;
+if(emb&&location.hash!=="#admin"){const st=document.createElement("style");st.textContent='[data-tab="pub"],#bConnect2,#bGuide2,#pubDot{display:none!important}';document.head.appendChild(st);}
 if(emb){Cloud.cfg=FIREBASE_CONFIG;Cloud.ws=FIREBASE_CONFIG._sala||"CCNN-2026";$("#pubCfg").value=JSON.stringify(FIREBASE_CONFIG,null,2);connect(FIREBASE_CONFIG,{ws:Cloud.ws,name:Cloud.me.name,role:Cloud.me.role,authMode:"google"});}
 else if(saved&&saved.cfg&&saved.cfg.apiKey){Cloud.cfg=saved.cfg;Cloud.ws=saved.ws||"CCNN-2026";$("#pubCfg").value=JSON.stringify(saved.cfg,null,2);$("#pubWs").value=Cloud.ws;connect(saved.cfg,{ws:Cloud.ws,name:Cloud.me.name,role:Cloud.me.role,authMode:saved.authMode||"anon",mail:saved.mail});}
 else setTimeout(()=>toast("info","Empieza por «Seguimiento → Asignaciones docentes»: allí defines qué docente da cada curso y materia."),900);
