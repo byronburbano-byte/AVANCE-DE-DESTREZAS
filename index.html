@@ -357,7 +357,7 @@ const ANIOS=["2024-2025","2025-2026","2026-2027"];
 const DEFAULT_ANIO=(()=>{const d=new Date(),y=d.getFullYear(),a=d.getMonth()>=8?y:y-1;return a+"-"+(a+1);})();if(!ANIOS.includes(DEFAULT_ANIO))ANIOS.push(DEFAULT_ANIO);
 const MOTIVOS=[{k:"tiempo",l:"Falta de tiempo en el parcial",c:"#fbbf24"},{k:"feriado",l:"Feriados o interrupciones institucionales",c:"#fb923c"},{k:"refuerzo",l:"Priorización de refuerzo académico",c:"#f472b6"},{k:"ausencia",l:"Ausencia de estudiantes / actividades externas",c:"#a78bfa"},{k:"insumos",l:"Falta de insumos o equipos de laboratorio",c:"#38bdf8"},{k:"planificacion",l:"Ajuste de planificación curricular",c:"#2dd4bf"},{k:"profundidad",l:"El contenido requiere mayor profundización",c:"#a3e635"},{k:"otro",l:"Otro motivo",c:"#fb7185"}];
 const motivo=k=>MOTIVOS.find(m=>m.k===k)||MOTIVOS[7];
-const BLOCKS=[{p:"CN.2.1",n:12,area:"E",name:"Los seres vivos y su ambiente"},{p:"CN.2.2",n:6,area:"E",name:"El cuerpo humano y la salud"},{p:"CN.2.3",n:13,area:"E",name:"Materia, energía y movimiento"},{p:"CN.2.4",n:14,area:"E",name:"La Tierra y el Universo"},{p:"CN.2.5",n:9,area:"E",name:"Ciencia y saberes ancestrales"},{p:"CN.3.1",n:13,area:"M",name:"Biodiversidad y ecosistemas"},{p:"CN.3.2",n:10,area:"M",name:"El ser humano y la salud"},{p:"CN.3.3",n:12,area:"M",name:"Materia y energía"},{p:"CN.3.4",n:14,area:"M",name:"La Tierra y el Universo"},{p:"CN.3.5",n:10,area:"M",name:"Ciencia, tecnología y sociedad"},{p:"CN.4.1",n:17,area:"S",name:"Célula, evolución y ecosistemas"},{p:"CN.4.2",n:7,area:"S",name:"El ser humano y la salud"},{p:"CN.4.3",n:19,area:"S",name:"Movimiento, fuerza y materia"},{p:"CN.4.4",n:17,area:"S",name:"La Tierra y el Universo"},{p:"CN.4.5",n:9,area:"S",name:"Ciencia, tecnología y sociedad"},{p:"CN.B.5.1",n:22,area:"B",name:"Origen de la vida, biomoléculas, evolución y biodiversidad"},{p:"CN.B.5.2",n:6,area:"B",name:"La célula y sus procesos"},{p:"CN.B.5.3",n:9,area:"B",name:"Funciones vitales en animales y plantas"},{p:"CN.B.5.4",n:14,area:"B",name:"El ser humano y la salud"},{p:"CN.B.5.5",n:11,area:"B",name:"Genética, biotecnología y población"},{p:"CN.Q.5.1",n:29,area:"Q",name:"Gases, estructura atómica, enlace y química del carbono"},{p:"CN.Q.5.2",n:17,area:"Q",name:"Funciones químicas, estequiometría y química orgánica"},{p:"CN.Q.5.3",n:14,area:"Q",name:"Disoluciones, ácido-base y química aplicada"},{p:"CN.F.5.1",n:57,area:"F",name:"Cinemática, dinámica y electromagnetismo"},{p:"CN.F.5.2",n:11,area:"F",name:"Trabajo, energía y termodinámica"},{p:"CN.F.5.3",n:8,area:"F",name:"Ondas y electromagnetismo"},{p:"CN.F.5.4",n:4,area:"F",name:"Gravitación y astronomía"},{p:"CN.F.5.5",n:15,area:"F",name:"Física moderna y cuántica"},{p:"CN.F.5.6",n:5,area:"F",name:"Física, tecnología y sociedad"}];
+const BLOCKS=[{p:"CN.2.1",n:12,area:"E",name:"Los seres vivos y su ambiente"},{p:"CN.2.2",n:6,area:"E",name:"El cuerpo humano y la salud"},{p:"CN.2.3",n:13,area:"E",name:"Materia, energía y movimiento"},{p:"CN.2.4",n:14,area:"E",name:"La Tierra y el Universo"},{p:"CN.2.5",n:9,area:"E",name:"Ciencia y saberes ancestrales"},{p:"CN.3.1",n:13,area:"M",name:"Biodiversidad y ecosistemas"},{p:"CN.3.2",n:10,area:"M",name:"El ser humano y la salud"},{p:"CN.3.3",n:12,area:"M",name:"Materia y energía"},{p:"CN.3.4",n:14,area:"M",name:"La Tierra y el Universo"},{p:"CN.3.5",n:10,area:"M",name:"Ciencia, tecnología y sociedad"},{p:"CN.4.1",n:17,area:"S",name:"Célula, evolución y ecosistemas"},{p:"CN.4.2",n:7,area:"S",name:"El ser humano y la salud"},{p:"CN.4.3",n:19,area:"S",name:"Movimiento, fuerza y materia"},{p:"CN.4.4",n:17,area:"S",name:"La Tierra y el Universo"},{p:"CN.4.5",n:9,area:"S",name:"Ciencia, tecnología y sociedad"},{p:"CN.B.5.1",n:22,area:"B",name:"Origen de la vida, biomoléculas, evolución y biodiversidad"},{p:"CN.B.5.2",n:6,area:"B",name:"La célula y sus procesos"},{p:"CN.B.5.3",n:9,area:"B",name:"Funciones vitales en animales y plantas"},{p:"CN.B.5.4",n:14,area:"B",name:"El ser humano y la salud"},{p:"CN.B.5.5",n:11,area:"B",name:"Genética, biotecnología y población"},{p:"CN.Q.5.1",n:29,area:"Q",name:"Gases, estructura atómica, enlace y química del carbono"},{p:"CN.Q.5.2",n:17,area:"Q",name:"Funciones químicas, estequiometría y química orgánica"},{p:"CN.Q.5.3",n:14,area:"Q",name:"Disoluciones, ácido-base y química aplicada"},{p:"CN.F.5.1",n:57,area:"F",name:"Cinemática, dinámica y electromagnetismo"},{p:"CN.F.5.2",n:11,area:"F",name:"Trabajo, energía y termodinámica"},{p:"CN.F.5.3",n:8,area:"F",name:"Ondas y electromagnetismo"},{p:"CN.F.5.4",n:4,area:"F",name:"Gravitación y astronomía"},{p:"CN.F.5.5",n:15,area:"F",name:"Física moderna y cuántica"},{p:"CN.F.5.6",n:5,area:"F",name:"Física, tecnología y sociedad"},{p:"M.2.1",n:33,area:"ME",name:"Patrones, relaciones y números (2do–4to EGB)"},{p:"M.2.2",n:25,area:"ME",name:"Geometría y medida (2do–4to EGB)"},{p:"M.2.3",n:3,area:"ME",name:"Estadística y probabilidad (2do–4to EGB)"},{p:"M.3.1",n:47,area:"MM",name:"Álgebra y funciones (5to–7mo EGB)"},{p:"M.3.2",n:23,area:"MM",name:"Geometría y medida (5to–7mo EGB)"},{p:"M.3.3",n:6,area:"MM",name:"Estadística y probabilidad (5to–7mo EGB)"},{p:"M.4.1",n:60,area:"MS",name:"Álgebra y funciones (8vo–10mo EGB)"},{p:"M.4.2",n:22,area:"MS",name:"Lógica, geometría y medida (8vo–10mo EGB)"},{p:"M.4.3",n:12,area:"MS",name:"Estadística y probabilidad (8vo–10mo EGB)"},{p:"M.5.1",n:80,area:"MB",name:"Álgebra y funciones (BGU)"},{p:"M.5.2",n:27,area:"MB",name:"Geometría y medida (BGU)"},{p:"M.5.3",n:29,area:"MB",name:"Estadística y probabilidad (BGU)"}];
 const REF=new Set(["CN.F.5.1.1","CN.B.5.4.10","CN.B.5.5.6","CN.B.5.5.7","CN.B.5.5.8","CN.B.5.5.9"]);
 const RAW={
 "CN.2.1":`1|Observar las etapas del ciclo vital del ser humano y registrar gráficamente los cambios de acuerdo a la edad.
@@ -763,18 +763,385 @@ const RAW={
 2|Ejemplificar, dentro de las actividades humanas, los avances de la mecatrónica al servicio de la sociedad, que han facilitado las labores humanas con la finalidad de proponer alguna creación propia.
 3|Establecer semejanzas y diferencias entre el movimiento de la Luna y de los satélites artificiales alrededor de la Tierra, mediante el uso de simuladores.
 4|Analizar la incidencia del electromagnetismo, la mecánica cuántica y la nanotecnología en las necesidades de la sociedad contemporánea.
-5|Analizar los efectos que tiene la tecnología en la revolución de las industrias, con el fin de concienciar que el uso indebido del conocimiento y en especial que la aplicación de leyes físicas genera perjuicios a la sociedad.`};
+5|Analizar los efectos que tiene la tecnología en la revolución de las industrias, con el fin de concienciar que el uso indebido del conocimiento y en especial que la aplicación de leyes físicas genera perjuicios a la sociedad.`,
+"M.2.1":`1|Representar gráficamente conjuntos y subconjuntos, discriminando las propiedades o atributos de los objetos.
+2|Describir y reproducir patrones de objetos y figuras basándose en sus atributos.
+3|Describir y reproducir patrones numéricos basados en sumas y restas, contando hacia adelante y hacia atrás.
+4|Describir y reproducir patrones numéricos crecientes con la suma y la multiplicación.
+5|Construir patrones de figuras basándose en sus atributos y patrones numéricos a partir de la suma, resta y multiplicación.
+6|Relacionar los elementos del conjunto de salida con los elementos del conjunto de llegada, a partir de la correspondencia entre elementos.
+7|Representar, en diagramas, tablas y una cuadrícula, las parejas ordenadas de una relación específica entre los elementos del conjunto de salida y los elementos del conjunto de llegada.
+8|Identificar los elementos relacionados de un conjunto de salida y un conjunto de llegada como pares ordenados del producto cartesiano AxB.
+9|Representar por extensión y gráficamente los pares ordenados del producto cartesiano AxB.
+10|Identificar los elementos de los conjuntos de salida y de llegada, a partir de los pares ordenados representados en una cuadrícula.
+11|Identificar el subconjunto de pares ordenados del producto cartesiano AxB que cumplen con una relación de correspondencia uno a uno.
+12|Representar, escribir y leer los números naturales del 0 al 9 999 en forma concreta, gráfica (en la semirrecta numérica) y simbólica.
+13|Contar cantidades del 0 al 9 999 para verificar estimaciones (en grupos de dos, tres, cinco y diez) (Se incluirá el conocimiento de la decena de mil).
+14|Reconocer el valor posicional de números naturales de hasta cuatro cifras, basándose en la composición y descomposición de unidades, decenas, centenas y unidades de mil, mediante el uso de material concreto y con representación simbólica.
+15|Establecer relaciones de secuencia y de orden en un conjunto de números naturales de hasta cuatro cifras, utilizando material concreto y simbología matemática (=, <, >,).
+16|Reconocer números ordinales del primero al vigésimo para organizar objetos o elementos.
+17|Reconocer y diferenciar los números pares e impares por agrupación y de manera numérica.
+18|Reconocer mitades y dobles en unidades de objetos.
+19|Relacionar la noción de adición con la de agregar objetos a un conjunto.
+20|Vincular la noción de sustracción con la noción de quitar objetos de un conjunto y la de establecer la diferencia entre dos cantidades.
+21|Realizar adiciones y sustracciones con los números hasta 9 999, con material concreto, mentalmente, gráficamente y de manera numérica.
+22|Aplicar estrategias de descomposición en decenas, centenas y miles en cálculos de suma y resta.
+23|Aplicar las propiedades conmutativa y asociativa de la adición en estrategias de cálculo mental.
+24|Resolver y plantear, de forma individual o grupal, problemas que requieran el uso de sumas y restas con números hasta de cuatro cifras, e interpretar la solución dentro del contexto del problema.
+25|Relacionar la noción de multiplicación con patrones de sumandos iguales o con situaciones de “tantas veces tanto”.
+26|Realizar multiplicaciones en función del modelo grupal, geométrico y lineal.
+27|Memorizar paulatinamente las combinaciones multiplicativas (tablas de multiplicar) con la manipulación y visualización de material concreto.
+28|Aplicar las reglas de multiplicación por 10, 100 y 1 000 en números de hasta dos cifras.
+29|Aplicar las propiedades conmutativa y asociativa de la multiplicación en el cálculo escrito y mental, y en la resolución de problemas.
+30|Relacionar la noción de división con patrones de resta iguales o reparto de cantidades en tantos iguales.
+31|Reconocer la relación entre división y multiplicación como operaciones inversas.
+32|Calcular mentalmente productos y cocientes exactos utilizando varias estrategias.
+33|Resolver problemas relacionados con la multiplicación y la división utilizando varias estrategias, e interpretar la solución dentro del contexto del problema.`,
+"M.2.2":`1|Reconocer y diferenciar los elementos y propiedades de cilindros, esferas, conos, cubos, pirámides de base cuadrada y prismas rectangulares en objetos del entorno y/o modelos geométricos.
+2|Clasificar objetos, cuerpos geométricos y figuras geométricas según sus propiedades.
+3|Identificar formas cuadradas, triangulares, rectangulares y circulares en cuerpos geométricos del entorno y/o modelos geométricos.
+4|Construir figuras geométricas como cuadrados, triángulos, rectángulos y círculos.
+5|Distinguir lados, frontera interior y exterior, vértices y ángulos en figuras geométricas: cuadrados, triángulos, rectángulos y círculos.
+6|Reconocer y diferenciar cuadrados y rectángulos a partir del análisis de sus características, y determinar el perímetro de cuadrados y rectángulos por estimación y/o medición.
+7|Reconocer líneas, rectas y curvas en figuras planas y cuerpos.
+8|Representar de forma gráfica la semirrecta, el segmento y el ángulo.
+9|Reconocer y clasificar ángulos según su amplitud (rectos, agudos y obtusos) en objetos, cuerpos y figuras geométricas.
+10|Medir, estimar y comparar longitudes de objetos del entorno, contrastándolas con patrones de medidas no convencionales.
+11|Utilizar las unidades de medida de longitud: el metro y sus submúltiplos (dm, cm, mm) en la estimación y medición de longitudes de objetos del entorno.
+12|Realizar conversiones simples de medidas de longitud del metro a sus submúltiplos.
+13|Representar cantidades monetarias con el uso de monedas y billetes de 1, 5, 10, 20, 50 y 100 (didácticos).
+14|Realizar conversiones monetarias simples en situaciones significativas.
+15|Utilizar la unidad monetaria en actividades lúdicas y en transacciones cotidianas simples, destacando la importancia de la integridad y la honestidad.
+16|Reconocer día, noche, mañana, tarde, hoy, ayer, días de la semana y los meses del año para valorar el tiempo propio y el de los demás, y ordenar situaciones temporales secuenciales asociándolas con eventos significativos.
+17|Realizar conversiones usuales entre años, meses, semanas, días, horas, minutos y segundos en situaciones significativas.
+18|Leer horas y minutos en un reloj analógico.
+19|Medir, estimar y comparar masas contrastándolas con patrones de medidas no convencionales.
+20|Utilizar las unidades de medida de masa: el gramo y el kilogramo, en la estimación y medición de objetos del entorno.
+21|Realizar conversiones simples de medidas de masa.
+22|Identificar la libra como unidad de medida de masa.
+23|Medir, estimar y comparar capacidades contrastándolas con patrones de medidas no convencionales.
+24|Utilizar las unidades de medida de capacidad: el litro y sus submúltiplos (dl, cl, ml) en la estimación y medición de objetos del entorno.
+25|Realizar conversiones simples de medidas de capacidad del litro a sus submúltiplos.`,
+"M.2.3":`1|Organizar y representar datos estadísticos relativos a su entorno en tablas de frecuencias, pictogramas y diagramas de barras, en función de explicar e interpretar conclusiones y asumir compromisos.
+2|Realizar combinaciones simples y solucionar situaciones cotidianas.
+3|Reconocer experiencias aleatorias en situaciones cotidianas.`,
+"M.3.1":`1|Generar sucesiones con sumas, restas, multiplicaciones y divisiones, con números naturales, a partir de ejercicios numéricos o problemas sencillos.
+2|Leer y ubicar pares ordenados en el sistema de coordenadas rectangulares, con números naturales, decimales y fracciones.
+3|Utilizar el sistema de coordenadas para representar situaciones significativas.
+4|Leer y escribir números naturales en cualquier contexto.
+5|Reconocer el valor posicional de números naturales de hasta nueve cifras, basándose en su composición y descomposición, con el uso de material concreto y con representación simbólica.
+6|Establecer relaciones de secuencia y orden en un conjunto de números naturales de hasta nueve cifras, utilizando material concreto, la semirrecta numérica y simbología matemática (=, <, >).
+7|Reconocer términos de la adición y sustracción, y calcular la suma o la diferencia de números naturales.
+8|Aplicar las propiedades de la adición como estrategia de cálculo mental y la solución de problemas.
+9|Reconocer términos y realizar multiplicaciones entre números naturales, aplicando el algoritmo de la multiplicación y con el uso de la tecnología.
+10|Aplicar las propiedades de la multiplicación en el cálculo escrito y mental, y la resolución de ejercicios y problemas.
+11|Reconocer términos y realizar divisiones entre números naturales con residuo, con el dividendo mayor que el divisor, aplicando el algoritmo correspondiente y con el uso de la tecnología.
+12|Calcular productos y cocientes de números naturales por 10, 100 y 1 000.
+13|Resolver problemas que requieran el uso de operaciones combinadas con números naturales e interpretar la solución dentro del contexto del problema.
+14|Identificar múltiplos y divisores de un conjunto de números naturales.
+15|Utilizar criterios de divisibilidad por 2, 3, 4, 5, 6, 9 y 10 en la descomposición de números naturales en factores primos y en la resolución de problemas.
+16|Identificar números primos y números compuestos por su definición, aplicando criterios de divisibilidad.
+17|Encontrar el máximo común divisor y el mínimo común múltiplo de un conjunto de números naturales.
+18|Resolver problemas que impliquen el cálculo del MCM y el MCD.
+19|Identificar la potenciación como una operación multiplicativa en los números naturales.
+20|Asociar las potencias con exponentes 2 (cuadrados) y 3 (cubos) con representaciones en dos y tres dimensiones o con áreas y volúmenes.
+21|Reconocer la radicación como la operación inversa a la potenciación.
+22|Resolver y plantear problemas de potenciación y radicación, utilizando varias estrategias, e interpretar la solución dentro del contexto del problema.
+23|Calcular y reconocer cuadrados y cubos de números inferiores a 20.
+24|Calcular raíces cuadradas y cúbicas utilizando la estimación, la descomposición en factores primos y la tecnología.
+25|Leer y escribir cantidades expresadas en números romanos hasta 1 000.
+26|Reconocer, leer y escribir los números decimales utilizados en la vida cotidiana.
+27|Establecer relaciones de secuencia y orden en un conjunto de números decimales, utilizando material concreto, la semirrecta numérica graduada y simbología matemática (=, <, >).
+28|Calcular, aplicando algoritmos y la tecnología, sumas, restas, multiplicaciones y divisiones con números decimales.
+29|Aplicar las reglas del redondeo en la resolución de problemas.
+30|Utilizar el cálculo de productos o cocientes por 10, 100 o 1 000 con números decimales, como estrategia de cálculo mental y solución de problemas.
+32|Resolver y plantear problemas con operaciones combinadas con números decimales, utilizando varias estrategias, e interpretar la solución dentro del contexto del problema.
+33|Leer y escribir fracciones a partir de un objeto, un conjunto de objetos fraccionables o una unidad de medida.
+34|Representar fracciones en la semirrecta numérica y gráficamente, para expresar y resolver situaciones cotidianas.
+35|Reconocer los números decimales: décimos, centésimos y milésimos, como la expresión decimal de fracciones por medio de la división.
+36|Transformar números decimales a fracciones con denominador 10, 100 y 1 000.
+37|Establecer relaciones de orden entre fracciones, utilizando material concreto, la semirrecta numérica y simbología matemática (=, <, >).
+38|Establecer relaciones de secuencia y orden entre números naturales, fracciones y decimales, utilizando material concreto, la semirrecta numérica y simbología matemática (=, <, >).
+39|Calcular sumas y restas con fracciones obteniendo el denominador común.
+40|Realizar multiplicaciones y divisiones entre fracciones, empleando como estrategia la simplificación.
+41|Realizar cálculos combinados de sumas, restas, multiplicaciones y divisiones con fracciones.
+42|Resolver y plantear problemas de sumas, restas, multiplicaciones y divisiones con fracciones, e interpretar la solución dentro del contexto del problema.
+43|Resolver y plantear problemas que contienen combinaciones de sumas, restas, multiplicaciones y divisiones con números naturales, fracciones y decimales, e interpretar la solución dentro del contexto del problema.
+44|Reconocer las magnitudes directa o inversamente proporcionales en situaciones cotidianas; elaborar tablas y plantear proporciones.
+45|Expresar porcentajes como fracciones y decimales, o fracciones y decimales como porcentajes, en función de explicar situaciones cotidianas.
+46|Representar porcentajes en diagramas circulares como una estrategia para comunicar información de distinta índole.
+47|Calcular porcentajes en aplicaciones cotidianas: facturas, notas de venta, rebajas, cuentas de ahorro, interés simple y otros.
+48|Resolver y plantear problemas con la aplicación de la proporcionalidad directa o inversa, e interpretar la solución dentro del contexto del problema.`,
+"M.3.2":`1|Reconocer rectas paralelas, secantes y secantes perpendiculares en figuras geométricas planas.
+2|Determinar la posición relativa de dos rectas en gráficos (paralelas, secantes y secantes perpendiculares).
+3|Identificar paralelogramos y trapecios a partir del análisis de sus características y propiedades.
+4|Calcular el perímetro; deducir y calcular el área de paralelogramos y trapecios en la resolución de problemas.
+5|Clasificar triángulos, por sus lados (en equiláteros, isósceles y escalenos) y por sus ángulos (en rectángulos, acutángulos y obtusángulos).
+6|Calcular el perímetro de triángulos; deducir y calcular el área de triángulos en la resolución de problemas.
+7|Construir, con el uso de una regla y un compás, triángulos, paralelogramos y trapecios, fijando medidas de lados y/o ángulos.
+8|Clasificar polígonos regulares e irregulares según sus lados y ángulos.
+9|Calcular, en la resolución de problemas, el perímetro y área de polígonos regulares, aplicando la fórmula correspondiente.
+10|Resolver problemas que impliquen el cálculo del perímetro de polígonos irregulares.
+11|Reconocer los elementos de un círculo en representaciones gráficas, y calcular la longitud (perímetro) de la circunferencia y el área de un círculo en la resolución de problemas.
+12|Clasificar poliedros y cuerpos de revolución de acuerdo a sus características y elementos.
+13|Aplicar la fórmula de Euler en la resolución de problemas.
+14|Realizar conversiones simples de medidas de longitud del metro, múltiplos y submúltiplos en la resolución de problemas.
+15|Reconocer el metro cuadrado como unidad de medida de superficie, los submúltiplos y múltiplos, y realizar conversiones en la resolución de problemas.
+16|Relacionar las medidas de superficie con las medidas agrarias más usuales (hectárea, área, centiárea) en la resolución de problemas.
+17|Reconocer el metro cúbico como unidad de medida de volumen, los submúltiplos y múltiplos; relacionar medidas de volumen y capacidad; y realizar conversiones en la resolución de problemas.
+18|Comparar el kilogramo, el gramo y la libra con las medidas de masa de la localidad, a partir de experiencias concretas y del uso de instrumentos de medida.
+19|Realizar conversiones simples entre el kilogramo, el gramo y la libra en la solución de problemas cotidianos.
+20|Medir ángulos rectos, agudos y obtusos, con el graduador u otras estrategias, para dar solución a situaciones cotidianas.
+21|Reconocer los ángulos como parte del sistema sexagesimal en la conversión de grados a minutos.
+22|Convertir medidas decimales de ángulos a grados y minutos, en función de explicar situaciones cotidianas.
+23|Utilizar siglo, década y lustro para interpretar información del entorno.`,
+"M.3.3":`1|Analizar y representar, en tablas de frecuencias, diagramas de barra, circulares y poligonales, datos discretos recolectados en el entorno e información publicada en medios de comunicación.
+2|Analizar e interpretar el significado de calcular medidas de tendencia central (media, mediana y moda) y medidas de dispersión (el rango), de un conjunto de datos estadísticos discretos tomados del entorno y de medios de comunicación.
+3|Emplear programas informáticos para tabular y representar datos discretos estadísticos obtenidos del entorno.
+4|Realizar combinaciones simples de hasta tres por cuatro elementos para explicar situaciones cotidianas.
+5|Describir las experiencias y sucesos aleatorios a través del análisis de sus representaciones gráficas y el uso de la terminología adecuada.
+6|Calcular la probabilidad de que un evento ocurra, gráficamente y con el uso de fracciones, en función de resolver problemas asociados a probabilidades de situaciones significativas.`,
+"M.4.1":`1|Reconocer los elementos del conjunto de números enteros Z, ejemplificando situaciones reales en las que se utilizan los números enteros negativos.
+2|Establecer relaciones de orden en un conjunto de números enteros, utilizando la recta numérica y la simbología matemática (=, <, ≤, >, ≥).
+3|Operar en Z (adición, sustracción, multiplicación y división) de forma numérica, aplicando el orden de operación.
+4|Deducir y aplicar las propiedades algebraicas (adición y multiplicación) de los números enteros en operaciones numéricas.
+5|Calcular la potencia de números enteros con exponentes naturales.
+6|Calcular raíces de números enteros no negativos que intervienen en expresiones matemáticas.
+7|Realizar operaciones combinadas en Z aplicando el orden de operación, y verificar resultados utilizando la tecnología.
+8|Expresar enunciados simples en lenguaje matemático (algebraico) para resolver problemas.
+9|Aplicar las propiedades algebraicas (adición y multiplicación) de los números enteros en la suma de monomios homogéneos y la multiplicación de términos algebraicos.
+10|Resolver ecuaciones de primer grado con una incógnita en Z en la solución de problemas.
+11|Resolver inecuaciones de primer grado con una incógnita en Z, de manera analítica, en la solución de ejercicios numéricos y problemas.
+12|Resolver y plantear problemas de aplicación con enunciados que involucren ecuaciones o inecuaciones de primer grado con una incógnita en Z, e interpretar y juzgar la validez de las soluciones obtenidas dentro del contexto del problema.
+13|Reconocer el conjunto de los números racionales Q e identificar sus elementos.
+14|Representar y reconocer los números racionales como un número decimal y/o como una fracción.
+15|Establecer relaciones de orden en un conjunto de números racionales utilizando la recta numérica y la simbología matemática (=, <, ≤, >, ≥).
+16|Operar en Q (adición y multiplicación) resolviendo ejercicios numéricos.
+17|Aplicar las propiedades algebraicas para la suma y la multiplicación de números racionales en la solución de ejercicios numéricos.
+18|Calcular potencias de números racionales con exponentes enteros.
+19|Calcular raíces de números racionales no negativos en la solución de ejercicios numéricos (con operaciones combinadas) y algebraicos, atendiendo la jerarquía de la operación.
+20|Resolver ecuaciones de primer grado con una incógnita en Q en la solución de problemas sencillos.
+21|Resolver inecuaciones de primer grado con una incógnita en Q de manera algebraica.
+22|Resolver y plantear problemas de aplicación con enunciados que involucren ecuaciones o inecuaciones de primer grado con una incógnita en Q, e interpretar y juzgar la validez de las soluciones obtenidas dentro del contexto del problema.
+23|Definir y reconocer polinomios de grados 1 y 2.
+24|Operar con polinomios de grado ≤2 (adición y producto por escalar) en ejercicios numéricos y algebraicos.
+25|Reescribir polinomios de grado 2 con la multiplicación de polinomios de grado 1.
+26|Reconocer el conjunto de los números irracionales e identificar sus elementos.
+27|Simplificar expresiones numéricas aplicando las reglas de los radicales.
+28|Reconocer el conjunto de los números reales R e identificar sus elementos.
+29|Aproximar números reales a números decimales para resolver problemas.
+30|Establecer relaciones de orden en un conjunto de números reales utilizando la recta numérica y la simbología matemática (=, <, ≤, >, ≥).
+31|Calcular adiciones y multiplicaciones con números reales y con términos algebraicos aplicando propiedades en R (propiedad distributiva de la suma con respecto al producto).
+32|Calcular expresiones numéricas y algebraicas usando las operaciones básicas y las propiedades algebraicas en R.
+33|Reconocer y calcular productos notables e identificar factores de expresiones algebraicas.
+34|Aplicar las potencias de números reales con exponentes enteros para la notación científica.
+35|Calcular raíces cuadradas de números reales no negativos y raíces cúbicas de números reales, aplicando las propiedades en R.
+36|Reescribir expresiones numéricas o algebraicas con raíces en el denominador utilizando propiedades en R (racionalización).
+37|Identificar las raíces como potencias con exponentes racionales para calcular potencias de números reales no negativos con exponentes racionales en R.
+38|Resolver ecuaciones de primer grado con una incógnita en R para resolver problemas sencillos.
+39|Representar un intervalo en R de manera algebraica y gráfica, y reconocer el intervalo como la solución de una inecuación de primer grado con una incógnita en R.
+40|Resolver de manera geométrica una inecuación lineal con dos incógnitas en el plano cartesiano sombreando la solución.
+41|Resolver un sistema de inecuaciones lineales con dos incógnitas de manera gráfica (en el plano) y reconocer la zona común sombreada como solución del sistema.
+42|Calcular el producto cartesiano entre dos conjuntos para definir relaciones binarias (subconjuntos), representándolas con pares ordenados.
+43|Identificar relaciones reflexivas, simétricas, transitivas y de equivalencia sobre un subconjunto del producto cartesiano.
+44|Definir y reconocer funciones de manera algebraica y de manera gráfica, con diagramas de Venn, determinando su dominio y recorrido en Z.
+45|Representar funciones de forma gráfica, con barras, bastones y diagramas circulares, y analizar sus características.
+46|Elaborar modelos matemáticos sencillos como funciones en la solución de problemas.
+47|Definir y reconocer funciones lineales en Z, con base en tablas de valores, de formulación algebraica y/o representación gráfica, con o sin el uso de la tecnología.
+48|Reconocer funciones crecientes y decrecientes a partir de su representación gráfica o tabla de valores.
+49|Definir y reconocer una función real identificando sus características: dominio, recorrido, monotonía, cortes con los ejes.
+50|Definir y reconocer una función lineal de manera algebraica y gráfica (con o sin el empleo de la tecnología), e identificar su monotonía a partir de la gráfica o su pendiente.
+51|Definir y reconocer funciones potencia con n=1, 2, 3, representarlas de manera gráfica e identificar su monotonía.
+52|Representar e interpretar modelos matemáticos con funciones lineales, y resolver problemas.
+53|Reconocer la recta como la solución gráfica de una ecuación lineal con dos incógnitas en R.
+54|Reconocer la intersección de dos rectas como la solución gráfica de un sistema de dos ecuaciones lineales con dos incógnitas.
+56|Resolver y plantear problemas de texto con enunciados que involucren funciones lineales y sistemas de dos ecuaciones lineales con dos incógnitas; e interpretar y juzgar la validez de las soluciones obtenidas dentro del contexto del problema.
+57|Definir y reconocer una función cuadrática de manera algebraica y gráfica, determinando sus características: dominio, recorrido, monotonía, máximos, mínimos y paridad.
+58|Reconocer los ceros de la función cuadrática como la solución de la ecuación de segundo grado con una incógnita.
+59|Resolver la ecuación de segundo grado con una incógnita de manera analítica (por factoreo, completación de cuadrados, fórmula binomial) en la solución de problemas.
+60|Aplicar las propiedades de las raíces de la ecuación de segundo grado con una incógnita para resolver problemas.
+61|Resolver (con apoyo de las TIC) y plantear problemas con enunciados que involucren modelos con funciones cuadráticas, e interpretar y juzgar la validez de las soluciones obtenidas dentro del contexto del problema.`,
+"M.4.2":`1|Definir y reconocer proposiciones simples a las que se puede asignar un valor de verdad para relacionarlas entre sí con conectivos lógicos: negación, disyunción, conjunción, condicionante y bicondicionante; y formar proposiciones compuestas (que tienen un valor de verdad que puede ser determinado).
+2|Definir y reconocer una tautología para la construcción de tablas de verdad.
+3|Conocer y aplicar las leyes de la lógica proposicional en la solución de problemas.
+4|Definir y reconocer conjuntos y sus características para operar con ellos (unión, intersección, diferencia, complemento) de forma gráfica y algebraica.
+5|Definir e identificar figuras geométricas semejantes, de acuerdo a las medidas de los ángulos y a la relación entre las medidas de los lados, determinando el factor de escala entre las figuras (teorema de Thales).
+6|Aplicar la semejanza en la construcción de figuras semejantes, el cálculo de longitudes y la solución de problemas geométricos.
+7|Reconocer y trazar líneas de simetría en figuras geométricas para completarlas o resolverlas.
+8|Clasificar y construir triángulos, utilizando regla y compás, bajo condiciones de ciertas medidas de lados y/o ángulos.
+9|Definir e identificar la congruencia de dos triángulos de acuerdo a criterios que consideran las medidas de sus lados y/o sus ángulos.
+10|Aplicar criterios de semejanza para reconocer triángulos rectángulos semejantes y resolver problemas.
+11|Calcular el perímetro y el área de triángulos en la resolución de problemas.
+12|Definir y dibujar medianas y baricentro, mediatrices y circuncentro, alturas y ortocentro, bisectrices e incentro en un triángulo.
+13|Plantear y resolver problemas que impliquen la identificación de las características de las rectas y puntos notables de un triángulo.
+14|Demostrar el teorema de Pitágoras utilizando áreas de regiones rectangulares.
+15|Aplicar el teorema de Pitágoras en la resolución de triángulos rectángulos.
+16|Definir e identificar las relaciones trigonométricas en el triángulo, rectángulo (seno, coseno, tangente) para resolver numéricamente triángulos rectángulos.
+17|Resolver y plantear problemas que involucren triángulos rectángulos en contextos reales, e interpretar y juzgar la validez de las soluciones obtenidas dentro del contexto del problema.
+18|Calcular el área de polígonos regulares por descomposición en triángulos.
+19|Aplicar la descomposición en triángulos en el cálculo de áreas de figuras geométricas compuestas.
+20|Construir pirámides, prismas, conos y cilindros a partir de patrones en dos dimensiones (redes), para calcular el área lateral y total de estos cuerpos geométricos.
+21|Calcular el volumen de pirámides, prismas, conos y cilindros aplicando las fórmulas respectivas.
+22|Resolver problemas que impliquen el cálculo de volúmenes de cuerpos compuestos (usando la descomposición de cuerpos).`,
+"M.4.3":`1|Organizar datos procesados en tablas de frecuencias para definir la función asociada, y representarlos gráficamente con ayuda de las TIC.
+2|Organizar datos no agrupados (máximo 20) y datos agrupados (máximo 50) en tablas de distribución de frecuencias: absoluta, relativa, relativa acumulada y acumulada, para analizar el significado de los datos.
+3|Representar de manera gráfica, con el uso de la tecnología, las frecuencias: histograma o gráfico con barras (polígono de frecuencias), gráfico de frecuencias acumuladas (ojiva), diagrama circular, en función de analizar datos.
+4|Definir y aplicar la metodología para realizar un estudio estadístico: estadística descriptiva.
+5|Definir y utilizar variables cualitativas y cuantitativas.
+6|Definir y aplicar niveles de medición: nominal, ordinal, intervalo y razón.
+7|Calcular e interpretar las medidas de tendencia central (media, mediana, moda) y medidas de dispersión (rango, varianza y desviación estándar) de un conjunto de datos en la solución de problemas.
+8|Determinar las medidas de posición: cuartiles, deciles, percentiles, para resolver problemas.
+9|Definir la probabilidad (empírica) y el azar de un evento o experimento estadístico para determinar eventos o experimentos independientes.
+10|Aplicar métodos de conteo (combinaciones y permutaciones) en el cálculo de probabilidades.
+11|Calcular el factorial de un número natural y el coeficiente binomial en el cálculo de probabilidades.
+12|Operar con eventos (unión, intersección, diferencia y complemento) y aplicar las leyes de De Morgan para calcular probabilidades en la resolución de problemas.`,
+"M.5.1":`1|Aplicar las propiedades algebraicas de los números reales en la resolución de productos notables y en la factorización de expresiones algebraicas.
+2|Deducir propiedades algebraicas de la potenciación de números reales con exponentes enteros en la simplificación de expresiones numéricas y algebraicas.
+3|Transformar raíces n-ésimas de un número real en potencias con exponentes racionales para simplificar expresiones numéricas y algebraicas.
+4|Aplicar las propiedades algebraicas de los números reales para resolver fórmulas (Física, Química, Biología), y ecuaciones que se deriven de dichas fórmulas.
+5|Identificar la intersección gráfica de dos rectas como solución de un sistema de dos ecuaciones lineales con dos incógnitas.
+6|Resolver analíticamente sistemas de dos ecuaciones lineales con dos incógnitas utilizando diferentes métodos (igualación, sustitución, eliminación).
+7|Aplicar las propiedades de orden de los números reales para realizar operaciones con intervalos (unión, intersección, diferencia y complemento), de manera gráfica (en la recta numérica) y de manera analítica.
+8|Aplicar las propiedades de orden de los números reales para resolver ecuaciones e inecuaciones de primer grado con una incógnita y con valor absoluto.
+9|Resolver sistemas de tres ecuaciones lineales con dos incógnitas (ninguna solución, solución única, infinitas soluciones) utilizando los métodos de sustitución o eliminación gaussiana.
+10|Resolver sistemas de ecuaciones lineales con tres incógnitas (infinitas soluciones) utilizando los métodos de sustitución o eliminación gaussiana.
+11|Resolver sistemas de dos ecuaciones lineales con tres incógnitas (ninguna solución, solución única, infinitas soluciones), de manera analítica, utilizando los métodos de sustitución o eliminación gaussiana.
+12|Descomponer funciones racionales en fracciones parciales resolviendo los sistemas de ecuaciones correspondientes.
+13|Resolver y plantear problemas de aplicación de sistemas de ecuaciones lineales (hasta tres ecuaciones lineales con hasta tres incógnitas); interpretar y juzgar la validez de las soluciones obtenidas dentro del contexto del problema.
+14|Reconocer el conjunto de matrices M2×2 [R] y sus elementos, así como las matrices especiales: nula e identidad.
+15|Realizar las operaciones de adición y producto entre matrices M2×2 [R], producto de escalares por matrices M2×2 [R], potencias de matrices M2×2 [R], aplicando las propiedades de números reales.
+16|Calcular el producto de una matriz de M2×2 [R] por un vector en el plano y analizar su resultado (vector y no matriz).
+17|Reconocer matrices reales de mxn e identificar las operaciones que son posibles de realizar entre ellas según sus dimensiones.
+18|Calcular el producto de una matriz de M2×2 [R] por un vector en el plano y analizar su resultado (vector y no matriz).
+19|Calcular la matriz inversa A-1de una matriz cuadrada A cuyo determinante sea diferente a 0 por el método de Gauss (matriz ampliada), para resolver sistemas de ecuaciones lineales.
+20|Graficar y analizar el dominio, el recorrido, la monotonía, ceros, extremos y paridad de las diferentes funciones reales (función afín a trozos, función potencia entera negativa con n=-1, -2, función raíz cuadrada, función valor absoluto de la función afín) utilizando TIC.
+21|Realizar la composición de funciones reales analizando las características de la función resultante (dominio, recorrido, monotonía, máximos, mínimos, paridad).
+22|Resolver (con o sin el uso de la tecnología) problemas o situaciones, reales o hipotéticas, con el empleo de la modelización con funciones reales (función afín a trozos, función potencia entera negativa con n=-1, -2, función raíz cuadrada, función valor absoluto de la función afín), identificando las variables significativas presentes y las relaciones entre ellas; juzgar la pertinencia y validez de los resultados obtenidos.
+23|Reconocer funciones inyectivas, sobreyectivas y biyectivas para calcular la función inversa (de funciones biyectivas) comprobando con la composición de funciones.
+24|Resolver y plantear aplicaciones de la composición de funciones reales en problemas reales o hipotéticos.
+25|Realizar las operaciones de adición y producto entre funciones reales, y el producto de números reales por funciones reales, aplicando propiedades de los números reales.
+26|Aplicar las propiedades de las raíces de la ecuación de segundo grado en la factorización de una función cuadrática.
+27|Resolver ecuaciones que se pueden reducir a ecuaciones de segundo grado con una incógnita.
+28|Identificar la intersección gráfica de una recta y una parábola como solución de un sistema de dos ecuaciones: una cuadrática y otra lineal.
+29|Identificar la intersección gráfica de dos parábolas como solución de un sistema de dos ecuaciones de segundo grado con dos incógnitas.
+30|Resolver sistemas de dos ecuaciones con dos incógnitas: una de primer grado y una de segundo grado; y sistemas de dos ecuaciones de segundo grado con dos incógnitas, de forma analítica.
+31|Resolver (con o sin el uso de la tecnología) problemas o situaciones, reales o hipotéticas, que pueden ser modelizados con funciones cuadráticas, identificando las variables significativas presentes y las relaciones entre ellas; juzgar la pertinencia y validez de los resultados obtenidos.
+32|Calcular, de manera intuitiva, el límite cuando de una función cuadrática con el uso de la calculadora como una distancia entre dos número reales.
+33|Calcular de manera intuitiva la derivada de funciones cuadráticas, a partir del cociente incremental.
+34|Interpretar de manera geométrica (pendiente de la secante) y física el cociente incremental (velocidad media) de funciones cuadráticas, con apoyo de las TIC.
+35|Interpretar de manera geométrica y física la primera derivada (pendiente de la tangente, velocidad instantánea) de funciones cuadráticas, con apoyo de las TIC.
+36|Interpretar de manera física la segunda derivada (aceleración media, aceleración instantánea) de una función cuadrática, con apoyo de las TIC (calculadora gráfica, software, applets).
+37|Resolver y plantear problemas, reales o hipotéticos, que pueden ser modelizados con derivadas de funciones cuadráticas, identificando las variables significativas presentes y las relaciones entre ellas; juzgar la pertinencia y validez de los resultados obtenidos.
+38|Reconocer funciones polinomiales de grado n (entero positivo) con coeficientes reales en diversos ejemplos.
+39|Realizar operaciones de suma, multiplicación y división entre funciones polinomiales, y multiplicación de números reales por polinomios, en ejercicios algebraicos de simplificación.
+40|Aplicar las operaciones entre polinomios de grados ≤4, esquema de Hörner, teorema del residuo y sus respectivas propiedades para factorizar polinomios de grados ≤4 y reescribir los polinomios.
+41|Resolver aplicaciones de los polinomios de grados ≤4 en la informática (sistemas de numeración, conversión de sistema de numeración binario a decimal y viceversa) en la solución de problemas.
+42|Resolver problemas o situaciones que pueden ser modelizados con funciones polinomiales, identificando las variables significativas presentes y las relaciones entre ellas, y juzgar la validez y pertinencia de los resultados obtenidos.
+43|Graficar funciones racionales con cocientes de polinomios de grado ≤3 en diversos ejemplos, y determinar las ecuaciones de las asíntotas, si las tuvieran, con ayuda de la TIC.
+44|Determinar el dominio, rango, ceros, paridad, monotonía, extremos y asíntotas de funciones racionales con cocientes de polinomios de grado ≤3 con apoyo de las TIC.
+45|Realizar operaciones de suma y multiplicación entre funciones racionales y de multiplicación de números reales por funciones racionales en ejercicios algebraicos, para simplificar las funciones.
+46|Resolver aplicaciones, problemas o situaciones que pueden ser modelizados con funciones racionales, identificando las variables significativas presentes y las relaciones entre ellas, y juzgar la validez y pertinencia de los resultados obtenidos con apoyo de las TIC.
+47|Calcular de manera intuitiva la derivada de funciones polinomiales de grado ≤4 a partir del cociente incremental.
+48|Interpretar de manera geométrica (pendiente de la secante) y física el cociente incremental (velocidad media) de funciones polinomiales de grado ≤4, con apoyo de las TIC.
+49|Interpretar de manera geométrica y física la primera derivada (pendiente de la tangente, velocidad instantánea) de funciones polinomiales de grado ≤4, con apoyo de las TIC.
+50|Interpretar de manera física la segunda derivada (aceleración media, aceleración instantánea) de una función polinomial de grado ≤4, para analizar la monotonía, determinar los máximos y mínimos de estas funciones y graficarlas con apoyo de las TIC (calculadora gráfica, software, applets).
+51|Calcular de manera intuitiva la derivada de funciones racionales cuyos numeradores y denominadores sean polinomios de grado ≤2, para analizar la monotonía, determinar los máximos y mínimos de estas funciones y graficarlas con apoyo de las TIC (calculadora gráfica, software, applets)
+52|Resolver aplicaciones reales o hipotéticas con ayuda de las derivadas de funciones polinomiales de grado ≤4 y de funciones racionales cuyos numeradores y denominadores sean polinomios de grado ≤2, y juzgar la validez y pertinencia de los resultados obtenidos.
+53|Identificar sucesiones numéricas reales, sucesiones monótonas y sucesiones definidas por recurrencia a partir de las fórmulas que las definen.
+54|Reconocer y calcular uno o varios parámetros de una progresión (aritmética o geométrica) conocidos otros parámetros.
+55|Aplicar los conocimientos sobre progresiones aritméticas, progresiones geométricas y sumas parciales finitas de sucesiones numéricas para resolver aplicaciones, en general y de manera especial en el ámbito financiero, de las sucesiones numéricas reales.
+56|Resolver ejercicios numéricos y problemas con la aplicación de las progresiones aritméticas, geométricas y sumas parciales finitas de sucesiones numéricas.
+57|Reconocer las aplicaciones de las sucesiones numéricas reales en el ámbito financiero y resolver problemas, juzgar la validez de las soluciones obtenidas dentro del contexto del problema.
+58|Emplear progresiones aritméticas, geométricas y sumas parciales finitas de sucesiones numéricas en el planteamiento y resolución de problemas de diferentes ámbitos.
+59|Realizar las operaciones de suma y multiplicación entre sucesiones numéricas reales y la multiplicación de escalares por sucesiones numéricas reales aplicando las propiedades de los números reales.
+60|Identificar sucesiones convergentes y calcular el límite de la sucesión.
+61|Conocer y aplicar el álgebra de límites de sucesiones convergentes en la resolución de aplicaciones o problemas con sucesiones reales en matemática financiera (interés compuesto), e interpretar y juzgar la validez de las soluciones obtenidas.
+62|Reconocer y graficar las funciones escalonadas para calcular el área encerrada entre la curva y el eje X.
+63|Realizar las operaciones de suma y multiplicación de funciones escalonadas y de multiplicación de números reales por funciones escalonadas aplicando las propiedades de los números reales.
+64|Calcular la integral definida de una función escalonada, identificar sus propiedades cuando los límites de integración son iguales y cuando se intercambian los límites de integración.
+65|Aplicar la interpretación geométrica de la integral de una función escalonada no negativa como la superficie limitada por la curva y el eje x.
+66|Calcular la integral definida de una función polinomial de grado ≤4 aproximando el cálculo como una sucesión de funciones escalonadas.
+67|Reconocer la derivación y la integración como procesos inversos.
+68|Aplicar el segundo teorema del cálculo diferencial e integral para el cálculo de la integral definida de una función polinomial de grado ≤4 (primitiva).
+69|Resolver y plantear aplicaciones geométricas (cálculo de áreas) y físicas (velocidad media, espacio recorrido) de la integral definida, e interpretar y juzgar la validez de las soluciones obtenidas.
+70|Definir las funciones seno, coseno y tangente a partir de las relaciones trigonométricas en el círculo trigonométrico (unidad) e identificar sus respectivas gráficas a partir del análisis de sus características particulares.
+71|Reconocer y graficar funciones periódicas determinando el período y amplitud de las mismas, su dominio y recorrido, monotonía, paridad.
+72|Reconocer las funciones trigonométricas (seno, coseno, tangente, secante, cosecante y cotangente), sus propiedades y las relaciones existentes entre estas funciones y representarlas de manera gráfica con apoyo de las TIC (calculadora gráfica, software, applets).
+73|Reconocer y resolver (con apoyo de las TIC) aplicaciones, problemas o situaciones reales o hipotéticas que pueden ser modelizados con funciones trigonométricas, identificando las variables significativas presentes y las relaciones entre ellas, y juzgar la validez y pertinencia de los resultados obtenidos.
+74|Reconocer y graficar funciones exponenciales analizando sus características: monotonía, concavidad y comportamiento al infinito.
+75|Reconocer la función logarítmica como la función inversa de la función exponencial para calcular el logaritmo de un número y graficarla analizando esta relación para determinar sus características.
+76|Reconocer sucesiones numéricas reales que convergen para determinar su límite.
+77|Aplicar las propiedades de los exponentes y los logaritmos para resolver ecuaciones e inecuaciones con funciones exponenciales y logarítmicas, con ayuda de las TIC.
+78|Reconocer y resolver aplicaciones, problemas o situaciones reales o hipotéticas que pueden ser modelizados con funciones exponenciales o logarítmicas, identificando las variables significativas presentes y las relaciones entre ellas, y juzgar la validez y pertinencia de los resultados obtenidos.
+79|Calcular la capacidad de pago mensual en función de ingresos y gastos personales, resolviendo ecuaciones lineales que involucren tasas de interés y plazos de crédito.
+80|Considerar las metas financieras a corto, mediano y largo plazo; y, mediante funciones lineales reconoce que pueden cambiar con el tiempo.`,
+"M.5.2":`1|Graficar vectores en el plano (coordenadas) identificando sus características: dirección, sentido y longitud o norma.
+2|Calcular la longitud o norma (aplicando el teorema de Pitágoras) para establecer la igualdad entre dos vectores.
+3|Sumar, restar vectores y multiplicar un escalar por un vector de forma geométrica y de forma analítica, aplicando propiedades de los números reales y de los vectores en el plano.
+4|Resolver y plantear problemas de aplicaciones geométricas y físicas (posición, velocidad, aceleración, fuerza, entre otras) de los vectores en el plano, e interpretar y juzgar la validez de las soluciones obtenidas dentro del contexto del problema.
+5|Realizar las operaciones de adición entre elementos de R2 y de producto por un número escalar de manera geométrica y analítica aplicando propiedades de los números reales.
+6|Reconocer los vectores como elementos geométricos de R2.
+7|Calcular el producto escalar entre dos vectores y la norma de un vector para determinar la distancia entre dos puntos A y B en R2 como la norma del vector .
+8|Reconocer que dos vectores son ortogonales cuando su producto escalar es cero, y aplicar el teorema de Pitágoras para resolver y plantear aplicaciones geométricas con operaciones y elementos de R2, apoyándose en el uso de las TIC (software como Geogebra, calculadora gráfica, applets en Internet).
+9|Escribir y reconocer la ecuación vectorial y paramétrica de una recta a partir de un punto de la recta y un vector dirección, o a partir de dos puntos de la recta.
+10|Identificar la pendiente de una recta a partir de la ecuación vectorial de la recta, para escribir la ecuación cartesiana de la recta y la ecuación general de la recta.
+11|Determinar la posición relativa de dos rectas en R2 (rectas paralelas, que se cortan, perpendiculares) en la resolución de problemas (por ejemplo: trayectoria de aviones o de barcos para determinar si se interceptan).
+12|Calcular la distancia de un punto P a una recta (como la longitud del vector formado por el punto P y la proyección perpendicular del punto en la recta P´, utilizando la condición de ortogonalidad del vector dirección de la recta y el vector ) en la resolución de problemas (distancia entre dos rectas paralelas).
+13|Determinar la ecuación de la recta bisectriz de un ángulo como aplicación de la distancia de un punto a una recta.
+14|Resolver y plantear aplicaciones de la ecuación vectorial, paramétrica y cartesiana de la recta con apoyo de las TIC.
+15|Aplicar el producto escalar entre dos vectores, la norma de un vector, la distancia entre dos puntos, el ángulo entre dos vectores y la proyección ortogonal de un vector sobre otro, para resolver problemas geométricos, reales o hipotéticos, en R2.
+16|Describir la circunferencia, la parábola, la elipse y la hipérbola como lugares geométricos en el plano.
+17|Escribir y reconocer las ecuaciones cartesianas de la circunferencia, la parábola, la elipse y la hipérbola con centro en el origen y con centro fuera del origen para resolver y plantear problemas (por ejemplo, en física: órbitas planetarias, tiro parabólico, etc.), identificando la validez y pertinencia de los resultados obtenidos.
+18|Realizar las operaciones de adición entre elementos de R3 y de producto por un número escalar de manera geométrica y analítica, aplicando propiedades de los números reales; y reconocer los vectores como elementos geométricos de R3.
+19|Calcular el producto escalar entre dos vectores y la norma de un vector para determinar la distancia entre dos puntos A y B en R3 como la norma del vector .
+20|Escribir y reconocer la ecuación vectorial y paramétrica de una recta a partir de un punto de la recta y un vector dirección, o a partir de dos puntos de la recta, y graficarlas en R3.
+21|Determinar la ecuación vectorial de un plano a partir de un punto del plano y dos vectores dirección; a partir de tres puntos del plano; a partir de una recta contenida en el plano y un punto.
+22|Determinar la ecuación de la recta formada como intersección de dos planos como solución del sistema de ecuaciones planteado por las ecuaciones de los planos.
+23|Determinar si dos planos son paralelos (cuando no hay solución) o perpendiculares (si los vectores normales a los planos son perpendiculares) para resolver aplicaciones geométricas en R3.
+24|Aplicar la divisibilidad de números enteros, el cálculo del máximo común divisor y del mínimo común múltiplo de un conjunto de números enteros, y la resolución de ecuaciones lineales con dos incógnitas (con soluciones enteras no negativas) en la solución de problemas.
+25|Reconocer un subconjunto convexo en R2 y determinar el conjunto de soluciones factibles, de forma gráfica y analítica, para resolver problemas de programación lineal simple (minimización en un conjunto de soluciones factibles de un funcional lineal definido en R2).
+26|Realizar un proceso de solución gráfica y analítica del problema de programación lineal graficando las inecuaciones lineales, determinando los puntos extremos del conjunto de soluciones factibles, y encontrar la solución óptima.
+27|Resolver y plantear aplicaciones (un modelo simple de línea de producción, un modelo en la industria química, un problema de transporte simplificado), interpretando y juzgando la validez de las soluciones obtenidas dentro del contexto del problema.`,
+"M.5.3":`1|Calcular e interpretar la media, mediana, moda, rango, varianza y desviación estándar para datos no agrupados y agrupados, con apoyo de las TIC.
+2|Resolver y plantear problemas de aplicación de las medidas de tendencia central y de dispersión para datos agrupados, con apoyo de las TIC.
+3|Juzgar la validez de las soluciones obtenidas en los problemas de aplicación de las medidas de tendencia central y de dispersión para datos agrupados dentro del contexto del problema, con apoyo de las TIC.
+4|Calcular e interpretar el coeficiente de variación de un conjunto de datos (agrupados y no agrupados).
+5|Determinar los cuantiles (cuartiles, deciles y percentiles) para datos no agrupados y para datos agrupados.
+6|Representar en diagramas de caja los cuartiles, mediana, valor máximo y valor mínimo de un conjunto de datos.
+7|Reconocer los experimentos y eventos en un problema de texto, y aplicar el concepto de probabilidad y los axiomas de probabilidad en la resolución de problemas.
+8|Determinar la probabilidad empírica de un evento repitiendo el experimento aleatorio tantas veces como sea posible (50, 100… veces), con apoyo de las TIC.
+9|Realizar operaciones con sucesos: unión, intersección, diferencia y complemento, leyes de De Morgan, en la resolución de problemas.
+10|Calcular el factorial de un número natural y el coeficiente binomial para determinar el binomio de Newton.
+11|Aplicar los métodos de conteo: permutaciones, combinaciones, para determinar la probabilidad de eventos simples y, a partir de ellos, la probabilidad de eventos compuestos, en la resolución de problemas.
+12|Identificar variables aleatorias de manera intuitiva y de manera formal como una función real y aplicando la función aditiva de conjuntos, determinar la función de probabilidad en la resolución de problemas.
+13|Reconocer experimentos en los que se requiere utilizar la probabilidad condicionada mediante el análisis de la dependencia de los eventos involucrados, y calcular la probabilidad de un evento sujeto a varias condiciones aplicando el teorema de Bayes en la resolución de problemas.
+14|Reconocer variables aleatorias discretas cuyo recorrido es un conjunto discreto en ejemplos numéricos y experimentos y la distribución de probabilidad para una variable aleatoria discreta como una función real a partir del cálculo de probabilidades acumuladas definidas bajo ciertas condiciones dadas.
+15|Calcular e interpretar la media, la varianza y la desviación estándar de una variable aleatoria discreta.
+16|Resolver y plantear problemas que involucren el trabajo con probabilidades y variables aleatorias discretas.
+17|Juzgar la validez de las soluciones obtenidas en los problemas que involucren el trabajo con probabilidades y variables aleatorias discretas dentro del contexto del problema.
+18|Identificar variables aleatorias discretas en problemas de texto y reconocer la distribución de Poisson, como ejemplo de variables aleatorias discretas y sus aplicaciones.
+19|Reconocer un experimento de Bernoulli en diferentes contextos (control de calidad, análisis de datos, entre otros) y la distribución binomial en problemas de texto, identificando los valores de p y q.
+20|Calcular probabilidades binomiales con la fórmula (o con el apoyo de las TIC), la media, la varianza de distribuciones binomiales, y graficar.
+21|Analizar las formas de las gráficas de distribuciones binomiales en ejemplos de aplicación, con el apoyo de las TIC, y juzgar en contexto la validez y pertinencia de los resultados obtenidos.
+22|Calcular la covarianza de dos variables aleatorias para determinar la dependencia lineal (directa, indirecta o no existente) entre dichas variables aleatorias.
+23|Determinar la recta de regresión lineal que pasa por el centro de gravedad de la distribución para predecir valores de la variable dependiente utilizando la recta de regresión lineal, o calcular otra recta de regresión intercambiando las variables para predecir la otra variable.
+24|Utilizar el método de mínimos cuadrados para determinar la recta de regresión en la resolución de problemas hipotéticos o reales, con apoyo de las TIC.
+25|Juzgar la validez de las soluciones obtenidas en el método de mínimos cuadrados al determinar la recta de regresión en la resolución de problemas hipotéticos o reales dentro del contexto del problema, con el apoyo de las TIC.
+26|Resolver situaciones hipotéticas y cotidianas mediante modelos matemáticos demostrando autoeficacia y autonomía y, superando obstáculos en el proceso.
+27|Explicar de manera sencilla y clara los resultados de un análisis estadístico a diferentes audiencias observando sus reacciones como estrategia para profundizar en información estadística de interés de cada audiencia.
+28|Explicar y justificar de manera asertiva los resultados de cálculos probabilísticos y el uso de técnicas de conteo en la resolución de problemas, tanto en contextos educativos como en situaciones cotidianas.
+29|Argumentar cómo las políticas de planificación urbana y rural y de construcción inciden en la vida cotidiana de las personas a nivel local, nacional, regional o global; respaldando sus ideas evaluando datos estadísticos.`};
 const BQ=["CN.B.5.1.4","CN.B.5.1.5","CN.B.5.1.11","CN.B.5.1.12","CN.B.5.2.3","CN.B.5.2.4","CN.B.5.2.5","CN.B.5.2.6","CN.B.5.4.2","CN.Q.5.1.17","CN.Q.5.2.14","CN.Q.5.3.11","CN.Q.5.3.14"];
 const QF=["CN.Q.5.1.1","CN.Q.5.1.2","CN.Q.5.1.13","CN.Q.5.1.14","CN.Q.5.1.24","CN.Q.5.1.26","CN.Q.5.1.28","CN.Q.5.1.29","CN.Q.5.3.1","CN.Q.5.3.2","CN.Q.5.3.3","CN.Q.5.3.4","CN.Q.5.3.5","CN.Q.5.3.12","CN.F.5.2.4","CN.F.5.2.5","CN.F.5.2.6","CN.F.5.2.7","CN.F.5.2.8","CN.F.5.2.9","CN.F.5.2.10","CN.F.5.2.11"];
 const bl=a=>BLOCKS.filter(b=>b.area===a).map(b=>b.p);
-const SUBJ=[{id:"science",name:"Science",icon:"flask",color:"#2dd4bf",blocks:[...bl("E"),...bl("M")]},{id:"natural",name:"Natural Science",icon:"leaf",color:"#a3e635",blocks:bl("S"),note:"Materia del documento que faltaba en el HTML original; comparte el bloque CN.4.x (EGB Superior)."},{id:"bio1",name:"Biology I",icon:"cell",color:"#4ade80",blocks:bl("B")},{id:"bio2",name:"Biology II",icon:"spark",color:"#34d399",blocks:bl("B")},{id:"phy1",name:"Physics I",icon:"bolt",color:"#60a5fa",blocks:bl("F")},{id:"phy2",name:"Physics II",icon:"atom",color:"#38bdf8",blocks:bl("F")},{id:"chem1",name:"Chemistry I",icon:"drop",color:"#fbbf24",blocks:bl("Q")},{id:"chem2",name:"Chemistry II",icon:"flame",color:"#fb923c",blocks:bl("Q")},{id:"bioq",name:"Biochemistry",icon:"hex",color:"#f472b6",codes:BQ,note:"CCNN.docx no define destrezas propias: mapeo sugerido de 13 destrezas afines, editable."},{id:"fisq",name:"Physical Chemistry",icon:"atom",color:"#a78bfa",codes:QF,note:"CCNN.docx no define destrezas propias: mapeo sugerido de 22 destrezas afines, editable."}];
+const SUBJ=[{id:"science",name:"Science",icon:"flask",color:"#2dd4bf",blocks:[...bl("E"),...bl("M")]},{id:"natural",name:"Natural Science",icon:"leaf",color:"#a3e635",blocks:bl("S"),note:"Materia del documento que faltaba en el HTML original; comparte el bloque CN.4.x (EGB Superior)."},{id:"bio1",name:"Biology I",icon:"cell",color:"#4ade80",blocks:bl("B")},{id:"bio2",name:"Biology II",icon:"spark",color:"#34d399",blocks:bl("B")},{id:"phy1",name:"Physics I",icon:"bolt",color:"#60a5fa",blocks:bl("F")},{id:"phy2",name:"Physics II",icon:"atom",color:"#38bdf8",blocks:bl("F")},{id:"chem1",name:"Chemistry I",icon:"drop",color:"#fbbf24",blocks:bl("Q")},{id:"chem2",name:"Chemistry II",icon:"flame",color:"#fb923c",blocks:bl("Q")},{id:"bioq",name:"Biochemistry",icon:"hex",color:"#f472b6",codes:BQ,note:"CCNN.docx no define destrezas propias: mapeo sugerido de 13 destrezas afines, editable."},{id:"fisq",name:"Physical Chemistry",icon:"atom",color:"#a78bfa",codes:QF,note:"CCNN.docx no define destrezas propias: mapeo sugerido de 22 destrezas afines, editable."},{id:"math",name:"Mathematics",icon:"calc",color:"#e879f9",blocks:bl("ME").concat(bl("MM"))},{id:"math8",name:"Math EGB Superior",icon:"calc",color:"#22d3ee",blocks:bl("MS")},{id:"mathb",name:"Mathematics BGU",icon:"calc",color:"#f87171",blocks:bl("MB")}];
 const CSX=["CS.2.1.1","CS.2.1.2","CS.2.1.6","CS.2.1.8","CS.2.1.9","CS.2.1.10","CS.2.1.11","CS.2.2.1","CS.2.2.2","CS.2.2.3","CS.2.2.5","CS.2.2.7","CS.2.2.8","CS.2.2.9","CS.2.2.10","CS.2.2.13","CS.2.2.14","CS.2.2.15","CS.2.2.16","CS.2.2.17","CS.2.2.18","CS.2.3.1","CS.2.3.2","CS.2.3.3","CS.2.3.4","CS.2.3.6","CS.2.3.7","CS.2.3.8","CS.2.3.10","CS.2.3.11","CS.2.3.12","I.CS.2.3.2","I.CS.2.6.2","CE.CS.2.1","CE.CS.2.4","CE.CS.2.6"];
 const LV=[{k:"DAR",min:90,label:"Domina los aprendizajes",c:"#34d399"},{k:"AAR",min:70,label:"Alcanza los aprendizajes",c:"#60a5fa"},{k:"PAAR",min:40,label:"Próximo a alcanzar",c:"#fbbf24"},{k:"NAAR",min:0,label:"No alcanza",c:"#fb7185"}];
 const lvl=p=>LV.find(l=>p>=l.min)||LV[3];
 const EST={vista:{l:"Vista / evaluada",c:"#2dd4bf"},manual:{l:"Registro manual",c:"#60a5fa"},just:{l:"Justificada",c:"#fbbf24"},reprog:{l:"Reprogramada",c:"#a78bfa"},pend:{l:"Pendiente sin justificar",c:"#fb7185"}};
 const REV={pendiente:{l:"Sin revisar",c:"#8fa9b6"},aprobado:{l:"Aprobado",c:"#34d399"},observado:{l:"Con observaciones",c:"#fb7185"}};
 const AVC=["#2dd4bf","#60a5fa","#a3e635","#fbbf24","#f472b6","#a78bfa","#fb923c","#38bdf8"];
-const ICON={flask:'<path d="M10 2v6L4.6 17.3A2 2 0 0 0 6.3 20h11.4a2 2 0 0 0 1.7-2.7L14 8V2M8.5 2h7M7.5 14h9"/>',plus:'<path d="M12 5v14M5 12h14"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',edit:'<path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/>',x:'<path d="M18 6 6 18M6 6l12 12"/>',check:'<path d="M20 6 9 17l-5-5"/>',drag:'<circle cx="9" cy="6" r="1.2"/><circle cx="15" cy="6" r="1.2"/><circle cx="9" cy="12" r="1.2"/><circle cx="15" cy="12" r="1.2"/><circle cx="9" cy="18" r="1.2"/><circle cx="15" cy="18" r="1.2"/>',download:'<path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/>',upload:'<path d="M12 21V9m0 0 4 4m-4-4-4 4M4 3h16"/>',print:'<path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/>',alert:'<path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 12v5"/>',leaf:'<path d="M11 20A7 7 0 0 1 4 13C4 8 8 4 20 4c0 12-4 16-9 16ZM4 21c4-6 8-9 12-11"/>',bolt:'<path d="M13 2 3 14h7l-1 8 11-13h-7l1-7Z"/>',drop:'<path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/>',flame:'<path d="M12 2c1 4 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-5 .5 2 1.5 2.5 1.5 2.5C10 7 11 5 12 2Z"/>',atom:'<circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(-60 12 12)"/>',spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/>',hex:'<path d="M12 2l8 5v10l-8 5-8-5V7Z"/><circle cx="12" cy="12" r="3"/>',cell:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M21 12h-3M12 21v-3M3 12h3"/>',list:'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',trend:'<path d="M3 17l6-6 4 4 7-8M14 7h6v6"/>',save:'<path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z"/>',copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',undo:'<path d="M3 7v6h6M3 13a9 9 0 1 0 3-7.7L3 7"/>',eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',grad:'<path d="M22 10 12 5 2 10l10 5 10-5ZM6 12.5V17c3 2.5 9 2.5 12 0v-4.5M22 10v6"/>',users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.6a3.5 3.5 0 0 1 0 6.8M17.5 14.7c2.1.6 3.6 2.3 4 5.3"/>',chart:'<path d="M3 3v18h18M7 16v2M12 11v7M17 6v12"/>',clip:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v4H9zM9 11h6M9 15h6M9 18h3"/>',quiz:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.6.3-.9.8-.9 1.4v.3M12 17h.01"/>',pdf:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6M9 18h4"/>',xls:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>',flag:'<path d="M4 22V4M4 4h11l-1.5 4L15 12H4"/>',plan:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8 15h5"/>',pie:'<path d="M12 3a9 9 0 1 0 9 9h-9Z"/><path d="M14 3.5A8 8 0 0 1 20.5 10H14Z"/>',grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',cloud:'<path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 19Z"/>',bell:'<path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8M13.7 21a2 2 0 0 1-3.4 0"/>',rocket:'<path d="M5 13c-1.5 1.5-2 5-2 5s3.5-.5 5-2M12 15l-3-3a11 11 0 0 1 8-9c2 0 3 1 3 3a11 11 0 0 1-9 8Z"/><circle cx="15" cy="9" r="1.4"/>',key:'<circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3M17 6l2 2M14 9l2 2"/>',file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/>',link:'<path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/>'};
+const ICON={calc:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>',flask:'<path d="M10 2v6L4.6 17.3A2 2 0 0 0 6.3 20h11.4a2 2 0 0 0 1.7-2.7L14 8V2M8.5 2h7M7.5 14h9"/>',plus:'<path d="M12 5v14M5 12h14"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',edit:'<path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/>',x:'<path d="M18 6 6 18M6 6l12 12"/>',check:'<path d="M20 6 9 17l-5-5"/>',drag:'<circle cx="9" cy="6" r="1.2"/><circle cx="15" cy="6" r="1.2"/><circle cx="9" cy="12" r="1.2"/><circle cx="15" cy="12" r="1.2"/><circle cx="9" cy="18" r="1.2"/><circle cx="15" cy="18" r="1.2"/>',download:'<path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/>',upload:'<path d="M12 21V9m0 0 4 4m-4-4-4 4M4 3h16"/>',print:'<path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/>',alert:'<path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 12v5"/>',leaf:'<path d="M11 20A7 7 0 0 1 4 13C4 8 8 4 20 4c0 12-4 16-9 16ZM4 21c4-6 8-9 12-11"/>',bolt:'<path d="M13 2 3 14h7l-1 8 11-13h-7l1-7Z"/>',drop:'<path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/>',flame:'<path d="M12 2c1 4 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-5 .5 2 1.5 2.5 1.5 2.5C10 7 11 5 12 2Z"/>',atom:'<circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(-60 12 12)"/>',spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/>',hex:'<path d="M12 2l8 5v10l-8 5-8-5V7Z"/><circle cx="12" cy="12" r="3"/>',cell:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M21 12h-3M12 21v-3M3 12h3"/>',list:'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',trend:'<path d="M3 17l6-6 4 4 7-8M14 7h6v6"/>',save:'<path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z"/>',copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',undo:'<path d="M3 7v6h6M3 13a9 9 0 1 0 3-7.7L3 7"/>',eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',grad:'<path d="M22 10 12 5 2 10l10 5 10-5ZM6 12.5V17c3 2.5 9 2.5 12 0v-4.5M22 10v6"/>',users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.6a3.5 3.5 0 0 1 0 6.8M17.5 14.7c2.1.6 3.6 2.3 4 5.3"/>',chart:'<path d="M3 3v18h18M7 16v2M12 11v7M17 6v12"/>',clip:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v4H9zM9 11h6M9 15h6M9 18h3"/>',quiz:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.6.3-.9.8-.9 1.4v.3M12 17h.01"/>',pdf:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6M9 18h4"/>',xls:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>',flag:'<path d="M4 22V4M4 4h11l-1.5 4L15 12H4"/>',plan:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8 15h5"/>',pie:'<path d="M12 3a9 9 0 1 0 9 9h-9Z"/><path d="M14 3.5A8 8 0 0 1 20.5 10H14Z"/>',grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',cloud:'<path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 19Z"/>',bell:'<path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8M13.7 21a2 2 0 0 1-3.4 0"/>',rocket:'<path d="M5 13c-1.5 1.5-2 5-2 5s3.5-.5 5-2M12 15l-3-3a11 11 0 0 1 8-9c2 0 3 1 3 3a11 11 0 0 1-9 8Z"/><circle cx="15" cy="9" r="1.4"/>',key:'<circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3M17 6l2 2M14 9l2 2"/>',file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/>',link:'<path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/>'};
 const ic=(n,st)=>`<svg class="ic" ${st?`style="${st}"`:""} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n]||""}</svg>`;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -1376,8 +1743,8 @@ $("#bAddDest").onclick=()=>{const s=subjById(S.catSubj);modal(`<h3>${ic("plus")}
 function areaStats(a){const bs=BLOCKS.filter(b=>b.area===a),it=ARR.filter(d=>d.area===a),rf=it.filter(d=>d.ref).length;return{expected:bs.reduce((x,b)=>x+b.n,0),loaded:it.length,source:it.length-rf,ref:rf};}
 function renderAudit(){const tot=ARR.length,cu=ARR.filter(d=>d.custom).length,rf=ARR.filter(d=>d.ref).length,nq=S.exams.reduce((a,e)=>a+e.preguntas.length,0);
 $("#audHero").innerHTML=kpiHTML([["list",tot,"destrezas del catálogo","#2dd4bf"],["check",tot-rf-cu,"textuales de CCNN.docx","#34d399"],["alert",rf,"referenciales","#fbbf24"],["quiz",nq,"preguntas registradas","#38bdf8"]]);
-const F=areaStats("F"),B=areaStats("B"),Q=areaStats("Q"),E=areaStats("E"),M=areaStats("M"),Ss=areaStats("S");
-const finds=[{c:"#fb7185",i:"trash",t:"Sin datos inventados · todo editable y eliminable",b:"La aplicación ya no trae ejemplos: ni estudiantes, ni evaluaciones, ni justificaciones falsas. Solo el catálogo curricular y la lista real de docentes.",fix:"Cada fila tiene ✎ editar y 🗑 eliminar (con confirmación y deshacer). Nada está bloqueado: también puedes sobrescribir el % calculado desde una evaluación.",act:{l:"Ir a seguimiento",f:()=>setTab("seg")}},
+const F=areaStats("F"),B=areaStats("B"),Q=areaStats("Q"),E=areaStats("E"),M=areaStats("M"),Ss=areaStats("S");const ME=areaStats("ME"),MM=areaStats("MM"),MS=areaStats("MS"),MB=areaStats("MB");
+const finds=[{c:"#e879f9",i:"calc",t:"Matemática incorporada",b:`Se añadieron ${ME.loaded+MM.loaded+MS.loaded+MB.loaded} destrezas de Matemática (M.2 ${ME.loaded} · M.3 ${MM.loaded} · M.4 ${MS.loaded} · M.5 ${MB.loaded}) en tres materias: Mathematics (2do–7mo), Math EGB Superior (8vo–10mo) y Mathematics BGU.`,fix:"Catálogo deduplicado (el documento repetía cada destreza por indicador); textos tomados del documento de Matemática."},{c:"#fb7185",i:"trash",t:"Sin datos inventados · todo editable y eliminable",b:"La aplicación ya no trae ejemplos: ni estudiantes, ni evaluaciones, ni justificaciones falsas. Solo el catálogo curricular y la lista real de docentes.",fix:"Cada fila tiene ✎ editar y 🗑 eliminar (con confirmación y deshacer). Nada está bloqueado: también puedes sobrescribir el % calculado desde una evaluación.",act:{l:"Ir a seguimiento",f:()=>setTab("seg")}},
 {c:"#2dd4bf",i:"link",t:"Asignaciones docentes reales",b:`${S.asg.length} asignación(es) registradas. Cada registro, evaluación, planificación y justificación toma el docente, curso y materia de una asignación existente.`,fix:"Así ningún docente aparece dando un curso que no le corresponde. Si cambias la asignación, se actualizan sus registros asociados.",act:{l:"Gestionar asignaciones",f:()=>{setTab("seg");S.segSub="asg";renderSeg();}}},
 {c:"#a78bfa",i:"flag",t:"Justificaciones con seguimiento",b:`${S.justs.length} justificación(es) · ${S.plans.length} planificación(es). El docente explica el motivo, el estado y el compromiso; vicerrectoría revisa y comenta.`,fix:"Se pueden crear, editar y borrar individualmente o en lote; al borrarlas la destreza vuelve a «pendiente sin justificar»."},
 {c:"#34d399",i:"check",t:"Science y Chemistry — completas",b:`Science ${E.loaded+M.loaded} (CN.2 ${E.loaded} · CN.3 ${M.loaded}); Chemistry ${Q.loaded}/${Q.expected}. El documento repetía el subnivel Elemental y CN.Q.5.2.3.`,fix:"Catálogo deduplicado; CN.3.5.10 reubicada."},
@@ -1389,7 +1756,7 @@ $("#audFinds").onclick=e=>{const c=e.target.closest("[data-fix]");if(c)return op
 const ev=sid=>new Set(S.exams.filter(e=>e.materia===sid).flatMap(e=>e.preguntas.map(q=>q.code))).size;
 const cr=(n,b,ex,sr,ld,sid,st)=>`<tr><td><b>${n}</b></td><td style="font:11px var(--fm)">${b}</td><td><b>${ex??"—"}</b></td><td><b>${sr}</b></td><td><b>${ld}</b></td><td><b style="color:#38bdf8">${ev(sid)}</b></td><td>${st}</td></tr>`;
 const ok='<span class="badge ok">Completa</span>',rb=n=>`<span class="badge warn">${n} referencial(es)</span>`,sg='<span class="badge vio">Mapeo sugerido</span>';
-$("#covBody").innerHTML=[cr("Science","CN.2+CN.3",E.expected+M.expected,E.source+M.source,E.loaded+M.loaded,"science",ok),cr("Natural Science","CN.4",Ss.expected,Ss.source,Ss.loaded,"natural",ok),cr("Biology I","CN.B",B.expected,B.source,B.loaded,"bio1",rb(B.ref)),cr("Biology II","CN.B",B.expected,B.source,B.loaded,"bio2",rb(B.ref)),cr("Physics I","CN.F",F.expected,F.source,F.loaded,"phy1",rb(F.ref)),cr("Physics II","CN.F",F.expected,F.source,F.loaded,"phy2",rb(F.ref)),cr("Chemistry I","CN.Q",Q.expected,Q.source,Q.loaded,"chem1",ok),cr("Chemistry II","CN.Q",Q.expected,Q.source,Q.loaded,"chem2",ok),cr("Biochemistry","CN.B/CN.Q",null,0,BQ.length,"bioq",sg),cr("Physical Chemistry","CN.Q/CN.F",null,0,QF.length,"fisq",sg)].join("");
+$("#covBody").innerHTML=[cr("Science","CN.2+CN.3",E.expected+M.expected,E.source+M.source,E.loaded+M.loaded,"science",ok),cr("Natural Science","CN.4",Ss.expected,Ss.source,Ss.loaded,"natural",ok),cr("Biology I","CN.B",B.expected,B.source,B.loaded,"bio1",rb(B.ref)),cr("Biology II","CN.B",B.expected,B.source,B.loaded,"bio2",rb(B.ref)),cr("Physics I","CN.F",F.expected,F.source,F.loaded,"phy1",rb(F.ref)),cr("Physics II","CN.F",F.expected,F.source,F.loaded,"phy2",rb(F.ref)),cr("Chemistry I","CN.Q",Q.expected,Q.source,Q.loaded,"chem1",ok),cr("Chemistry II","CN.Q",Q.expected,Q.source,Q.loaded,"chem2",ok),cr("Biochemistry","CN.B/CN.Q",null,0,BQ.length,"bioq",sg),cr("Physical Chemistry","CN.Q/CN.F",null,0,QF.length,"fisq",sg),cr("Mathematics","M.2+M.3",ME.expected+MM.expected,ME.source+MM.source,ME.loaded+MM.loaded,"math",ok),cr("Math EGB Superior","M.4",MS.expected,MS.source,MS.loaded,"math8",ok),cr("Mathematics BGU","M.5",MB.expected,MB.source,MB.loaded,"mathb",ok)].join("");
 $("#csCodes").innerHTML=CSX.map(c=>`<span class="code" style="--sc:#60a5fa">${c}</span>`).join("");
 $("#audNote").innerHTML="Cadena: asignación docente → planificación del parcial → preguntas con destreza y puntaje → notas → % de avance → justificación de lo no visto → revisión de vicerrectoría → estadísticas → PDF/Excel.";}
 /* ===== PDF / Excel ===== */
