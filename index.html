@@ -931,8 +931,8 @@ const needAsg=fn=>()=>{if(!n){toast("warn","Primero registra la asignación del 
 const goEval=()=>{setTab("eval");newExam();};
 const ph=[["Al inicio del parcial",[
 [n>0,"Asignación docente (curso y materia)","Crear asignación",()=>openAsg(null),"",""],
-[n>0&&cnt(hasStu)===n,"Estudiantes de cada curso","Estudiantes",needAsg(()=>openRoster((A.find(a=>!hasStu(a))||A[0]).curso)),"",fr(hasStu)],
-[n>0&&cnt(hasPl)===n,"Planificar las destrezas del parcial","Planificar",needAsg(()=>openPlan(null)),"",fr(hasPl)]]],
+[n>0&&cnt(hasStu)===n,"Estudiantes de cada curso","Estudiantes",()=>openRoster((A.find(a=>!hasStu(a))||A[0]||{curso:CURSOS[0]}).curso),"",fr(hasStu)],
+[n>0&&cnt(hasPl)===n,"Planificar las destrezas del parcial","Planificar",()=>openPlan(null),"",fr(hasPl)]]],
 ["Cuando llegue el momento de evaluar",[
 [S.exams.length>0,"Crear la evaluación con sus preguntas","Evaluación",needAsg(goEval),"No necesitas haber terminado lo anterior",""],
 [S.exams.some(e=>examStats(e).graded.length),"Calificar: el avance se calcula solo","Calificar",()=>{const e=S.exams.find(x=>x.preguntas.length);if(e)loadExam(e.id,"cal");else needAsg(goEval)();},"Cuando apliques la evaluación",""],
